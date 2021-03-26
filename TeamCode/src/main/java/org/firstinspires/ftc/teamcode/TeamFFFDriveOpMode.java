@@ -29,10 +29,10 @@ public class TeamFFFDriveOpMode extends OpMode {
         double turn= gamepad1.right_stick_x;
 
         //计算每个电机
-        double first = move + turn + fun;
-        double second = move + turn - fun;
-        double third = move - turn - fun;
-        double fourth = move - turn + fun;
+        double first = (move + turn + fun)/4;
+        double second = (move + turn - fun)/4;
+        double third = (move - turn - fun)/4;
+        double fourth = (move - turn + fun)/4;
 
         l1.setPower(first);
         l2.setPower(second);
