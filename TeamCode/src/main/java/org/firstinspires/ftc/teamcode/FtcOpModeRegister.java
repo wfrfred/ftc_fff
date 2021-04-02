@@ -62,8 +62,8 @@ public class FtcOpModeRegister implements OpModeRegister {
      * @see com.qualcomm.robotcore.eventloop.opmode.Autonomous
      */
     public void register(OpModeManager manager) {
-        manager.register("TeamFFFDriveOpMode" , TeamFFFDriveOpMode.class);
-
+        //manager.register("TeamFFFDriveOpMode" , TeamFFFDriveOpMode.class);
+        manager.register("TeamFFFShootOpmode" , TeamFFFShootOpMode.class);
         /**
          * Any manual OpMode class registrations should go here.
          */
