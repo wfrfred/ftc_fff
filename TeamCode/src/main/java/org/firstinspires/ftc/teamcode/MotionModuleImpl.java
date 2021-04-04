@@ -17,27 +17,28 @@ public class MotionModuleImpl implements MotionModule{
     private double lBack = 0;
     private double rBack = 0;
     private boolean runningMode = false;
-    public void changeSpeed(double anglespeed) {
+
+    public void setSpeed(double angleSpeed) {
         /*
         将前后平动的速度均匀分配到每个马达
         */
         this.runningMode = false;
-        leftFront.setVelocity(anglespeed);
-        leftBack.setVelocity(anglespeed);
-        rightFront.setVelocity(anglespeed);
-        rightBack.setVelocity(anglespeed);
+        leftFront.setVelocity(angleSpeed);
+        leftBack.setVelocity(angleSpeed);
+        rightFront.setVelocity(angleSpeed);
+        rightBack.setVelocity(angleSpeed);
     }
-    public void turn(double anglespeed) {
+    public void turn(double angleSpeed) {
         /*
         将速度均匀分配到每个马达，右侧反向
         */
         this.runningMode = false;
-        leftFront.setVelocity(anglespeed);
-        leftBack.setVelocity(anglespeed);
-        rightFront.setVelocity(-anglespeed);
-        rightBack.setVelocity(-anglespeed);
+        leftFront.setVelocity(angleSpeed);
+        leftBack.setVelocity(angleSpeed);
+        rightFront.setVelocity(-angleSpeed);
+        rightBack.setVelocity(-angleSpeed);
     }
-    public void manSpeed(double move , double turn , double fun , double k) {
+    public void moveGamepad(double move , double turn , double fun , double k) {
         this.runningMode = true;
         //计算每个电机
         this.lFront= (move + turn + fun)*k;
@@ -60,10 +61,10 @@ public class MotionModuleImpl implements MotionModule{
         }
         
         if (max>1){
-            this.lFront = this.lFront / max;
-            this.lBack  = this.lBack  / max;
-            this.rFront = this.rFront / max;
-            this.rBack  = this.rBack  / max;
+            this.lFront /= max;
+            this.lBack  /= max;
+            this.rFront /= max;
+            this.rBack  /= max;
         }
         //确保没有值越界（界为[-1,1]）
         leftFront.setPower(this.lFront);
