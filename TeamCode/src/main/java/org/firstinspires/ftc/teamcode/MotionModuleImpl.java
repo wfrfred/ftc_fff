@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
     /**
-     * @Author RL
+     * @author RL
      * @Time 2021/4/4  20:52
      */
 
