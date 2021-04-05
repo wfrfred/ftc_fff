@@ -21,6 +21,8 @@ public class FtcControllerImpl implements FtcController{
     private RoboticArmModuleImpl a;
     private MyGamepad gamepad1;
 
+    private boolean isMotionModuleManual = false;
+
     /**
      * 用于实例化该控制器的构造方法
      * @param m 运动模块
@@ -43,6 +45,7 @@ public class FtcControllerImpl implements FtcController{
         this.a = a;
         this.gamepad1 = new MyGamepad(gamepad1);
         this.gamepad1.registerListener(gamepadListener);
+        motionModuleManualThread.start();
     }
 
     public void pressA(){
@@ -70,12 +73,32 @@ public class FtcControllerImpl implements FtcController{
     }
 
     public void pressThumbR() {
-
     }
 
     public void pressThumbL() {
 
     }
+
+    public void setMotionModuleManual(){
+        isMotionModuleManual = true;
+    }
+
+    Thread motionModuleManualThread = new Thread(new Runnable(){
+        @Override
+        public void run() {
+            while(true){
+                if(isMotionModuleManual) {
+                    m.moveGamepad(
+                            gamepad1.left_stick_x,
+                            gamepad1.right_stick_y,
+                            gamepad1.left_stick_x,
+                            1
+                    );
+                }
+            }
+        }
+    },"MotionModule") {
+    };
 
 
     /**
@@ -114,6 +137,9 @@ public class FtcControllerImpl implements FtcController{
                         break;
                     case KeyEvent.KEYCODE_BUTTON_THUMBL:
                         pressThumbL();
+                        break;
+                    default:
+                        //do nothing
                         break;
                 }
             }
