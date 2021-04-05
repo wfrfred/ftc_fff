@@ -140,7 +140,7 @@ class MyGamepad extends Gamepad{
      */
     public MyGamepad(Gamepad gamepad1) throws RobotCoreException {
         this.copy(gamepad1);
-        final long time = System.currentTimeMillis();
+        final long time = -System.currentTimeMillis();
         //初始化抖动时间列表
         lastDeBounceTime= new HashMap<Integer,Long>(){
             {
@@ -171,21 +171,36 @@ class MyGamepad extends Gamepad{
      */
     @Override
     public void update(final KeyEvent event) {
+
         //若上次更新时间到这次小于抖动时间，则判定为抖动，否则执行方法
-        /**
-         * @warning 该算法存在问题 记得修改 第一次判断时需要重置lastDeBounceTime
-         */
-        if ((System.currentTimeMillis()-lastDeBounceTime.get(event.getKeyCode()))>DEDOUNCE_TIME){
+        long time = System.currentTimeMillis();
+        //忽略与上次时间差过短
+        if((time-Math.abs(getTime(event)))<DEDOUNCE_TIME) return;
+        //用时间的正数表示按下状态，负数表示抬起状态，改变时重置
+        if(getTime(event)<0){
+            //第一次按下时取反
+            setTime(event.getKeyCode(),time);
+            return;
+        } else{
+            //抬起时触发改变函数
+            setTime(event.getKeyCode(),-time);
             super.update(event);
             gamepadListener.keyChanged(event);
-        } else{
-            lastDeBounceTime.put(event.getKeyCode(),System.currentTimeMillis());
         }
     }
 
     public void registerListener(GamepadListener gamepadListener){
         this.gamepadListener = gamepadListener;
     }
+
+    private final long getTime(KeyEvent event){
+        return lastDeBounceTime.get(event.getKeyCode());
+    }
+
+    private  final void setTime(int keyCode, long value){
+        lastDeBounceTime.put(keyCode,value);
+    }
+
 }
 
 interface GamepadListener extends EventListener {
