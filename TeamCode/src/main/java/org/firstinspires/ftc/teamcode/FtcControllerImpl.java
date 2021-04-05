@@ -120,7 +120,6 @@ public class FtcControllerImpl implements FtcController{
 
         @Override
         public void keyChanged(KeyEvent event) {
-            if (event.getAction()==KeyEvent.ACTION_DOWN){
                 switch (event.getKeyCode()) {
                     case KeyEvent.KEYCODE_BUTTON_A:
                         pressA();
@@ -151,7 +150,6 @@ public class FtcControllerImpl implements FtcController{
                         break;
                 }
             }
-        }
     };
 
 }
@@ -205,7 +203,6 @@ class MyGamepad extends Gamepad{
      */
     @Override
     public void update(final KeyEvent event) {
-
         //若上次更新时间到这次小于抖动时间，则判定为抖动，否则执行方法
         long time = System.currentTimeMillis();
         //忽略与上次时间差过短
