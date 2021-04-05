@@ -10,8 +10,8 @@ import java.util.HashMap;
 /**
  * 统筹管理调用各类机器人模块
  * @author wfrfred
- * @Time 2021-04-05 1:15
- * @version 1.0
+ * @Time 2021-04-05 12:38
+ * @version 1.1
  */
 public class FtcControllerImpl implements FtcController{
 
@@ -79,8 +79,12 @@ public class FtcControllerImpl implements FtcController{
 
     }
 
-    public void setMotionModuleManual(){
-        isMotionModuleManual = true;
+    public void setMotionModuleManual(boolean isMotionModuleManual){
+        this.isMotionModuleManual = isMotionModuleManual;
+    }
+
+    public boolean isMotionModuleManual(){
+        return isMotionModuleManual;
     }
 
     Thread motionModuleManualThread = new Thread(new Runnable(){
@@ -88,12 +92,16 @@ public class FtcControllerImpl implements FtcController{
         public void run() {
             while(true){
                 if(isMotionModuleManual) {
-                    m.moveGamepad(
-                            gamepad1.left_stick_x,
-                            gamepad1.right_stick_y,
-                            gamepad1.left_stick_x,
-                            1
-                    );
+                    synchronized (m) {
+                        m.moveGamepad(
+                                gamepad1.left_stick_x,
+                                gamepad1.right_stick_y,
+                                gamepad1.left_stick_x,
+                                1
+                        );
+                    }
+                }else{
+                    //do something
                 }
             }
         }
