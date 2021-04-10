@@ -4,6 +4,9 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 import java.util.EventListener;
 import java.util.HashMap;
 
@@ -15,53 +18,53 @@ import java.util.HashMap;
  */
 public class FtcControllerImpl implements FtcController{
 
-    private MotionModuleImpl m;
-    private ShootingModuleImpl s;
-    private TransportModuleImpl t;
-    private RoboticArmModuleImpl a;
+    private MotionModuleImpl motionModule;
+    private ShootingModuleImpl shootingModule;
+    private TransportModuleImpl transportModule;
+    private RoboticArmModuleImpl roboticArmModule;
     private MyGamepad gamepad1;
 
     private boolean isMotionModuleManual = false;
 
     /**
      * 用于实例化该控制器的构造方法
-     * @param m 运动模块
+     * @param motionModule 运动模块
      * @see MotionModule
-     * @param s 射击模块
+     * @param shootingModule 射击模块
      * @see ShootingModule
-     * @param t 运输模块
+     * @param transportModule 运输模块
      * @see TransportModule
-     * @param a 机械爪模块
+     * @param roboticArmModule 机械爪模块
      * @see RoboticArmModule
      * @param gamepad1 游戏手柄
      * @see MyGamepad
      * @see Gamepad
      * @throws RobotCoreException 复制手柄时可能出现无法绑定
      */
-    FtcControllerImpl(MotionModuleImpl m, ShootingModuleImpl s, TransportModuleImpl t, RoboticArmModuleImpl a, Gamepad gamepad1) throws RobotCoreException {
-        this.m = m;
-        this.s = s;
-        this.t = t;
-        this.a = a;
+    FtcControllerImpl(MotionModuleImpl motionModule, ShootingModuleImpl shootingModule, TransportModuleImpl transportModule, RoboticArmModuleImpl roboticArmModule, Gamepad gamepad1) throws RobotCoreException {
+        //this.motionModule = motionModule;
+        this.shootingModule = shootingModule;
+        //this.transportModule = transportModule;
+        //this.roboticArmModule = roboticArmModule;
         this.gamepad1 = new MyGamepad(gamepad1);
         this.gamepad1.registerListener(gamepadListener);
-        motionModuleManualThread.start();
+        //motionModuleManualThread.start();
     }
 
     public void pressA(){
-
+        shootingModule.startMotor();
     }
 
     public void pressB() {
-
+        shootingModule.stopMotor();
     }
 
     public void pressX() {
-
+        shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1);
     }
 
     public void pressY() {
-
+        shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1);
     }
 
     public void pressR1() {
@@ -73,6 +76,7 @@ public class FtcControllerImpl implements FtcController{
     }
 
     public void pressThumbR() {
+        shootingModule.shoot();
     }
 
     public void pressThumbL() {
@@ -92,8 +96,8 @@ public class FtcControllerImpl implements FtcController{
         public void run() {
             while(true){
                 if(isMotionModuleManual) {
-                    synchronized (m) {
-                        m.moveGamepad(
+                    synchronized (motionModule) {
+                        motionModule.moveGamepad(
                                 gamepad1.left_stick_x,
                                 gamepad1.right_stick_y,
                                 gamepad1.left_stick_x,
@@ -109,9 +113,6 @@ public class FtcControllerImpl implements FtcController{
     };
 
 
-    /**
-     * 匿名内部类 用于注册监听器
-     */
     GamepadListener gamepadListener = new GamepadListener() {
         @Override
         public void motionChanged(MotionEvent event) {
@@ -154,12 +155,14 @@ public class FtcControllerImpl implements FtcController{
 
 }
 
+
 /**
  * 重写Gamepad类
  * @see Gamepad
  * @author wfrfred
  * @Time 2021-04-04 1:15
  */
+
 class MyGamepad extends Gamepad{
     private GamepadListener gamepadListener;
     private HashMap<Integer,Long> lastDeBounceTime;//用于每个按钮分别除抖动
@@ -171,7 +174,7 @@ class MyGamepad extends Gamepad{
      * @throws RobotCoreException 绑定失败后抛出
      */
     public MyGamepad(Gamepad gamepad1) throws RobotCoreException {
-        this.copy(gamepad1);
+        copy(gamepad1);
         final long time = -System.currentTimeMillis();
         //初始化抖动时间列表
         lastDeBounceTime= new HashMap<Integer,Long>(){
@@ -184,13 +187,12 @@ class MyGamepad extends Gamepad{
                 put(KeyEvent.KEYCODE_BUTTON_L1, time);
                 put(KeyEvent.KEYCODE_BUTTON_THUMBL, time);
                 put(KeyEvent.KEYCODE_BUTTON_THUMBR, time);
-
             }
         };
     }
 
     /**
-     *调用监听器方法
+     * 调用监听器方法
      */
     @Override
     public void update(MotionEvent event) {
@@ -199,22 +201,22 @@ class MyGamepad extends Gamepad{
     }
 
     /**
-     *调用监听器方法
+     * 调用监听器方法
      */
     @Override
-    public void update(final KeyEvent event) {
+    public void update(KeyEvent event) {
         //若上次更新时间到这次小于抖动时间，则判定为抖动，否则执行方法
         long time = System.currentTimeMillis();
         //忽略与上次时间差过短
         if((time-Math.abs(getTime(event)))<DEDOUNCE_TIME) return;
         //用时间的正数表示按下状态，负数表示抬起状态，改变时重置
         if(getTime(event)<0){
-            //第一次按下时取反
-            setTime(event.getKeyCode(),time);
+            //第一次按下时改变为正值
+            setTime(event,time);
             return;
         } else{
             //抬起时触发改变函数
-            setTime(event.getKeyCode(),-time);
+            setTime(event,-time);
             super.update(event);
             gamepadListener.keyChanged(event);
         }
@@ -228,8 +230,8 @@ class MyGamepad extends Gamepad{
         return lastDeBounceTime.get(event.getKeyCode());
     }
 
-    private  final void setTime(int keyCode, long value){
-        lastDeBounceTime.put(keyCode,value);
+    private  final void setTime(KeyEvent event, long value){
+        lastDeBounceTime.put(event.getKeyCode(),value);
     }
 
 }
