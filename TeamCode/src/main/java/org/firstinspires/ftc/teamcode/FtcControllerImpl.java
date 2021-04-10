@@ -1,13 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.util.Pair;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
-
-import org.firstinspires.ftc.robotcore.external.Telemetry;
-
-import java.util.EventListener;
 import java.util.HashMap;
 
 /**
@@ -16,7 +11,7 @@ import java.util.HashMap;
  * @Time 2021-04-05 12:38
  * @version 1.1
  */
-public class FtcControllerImpl implements FtcController{
+public class FtcControllerImpl implements FtcController,CallBack{
 
     private MotionModuleImpl motionModule;
     private ShootingModuleImpl shootingModule;
@@ -47,8 +42,17 @@ public class FtcControllerImpl implements FtcController{
         //this.transportModule = transportModule;
         //this.roboticArmModule = roboticArmModule;
         this.gamepad1 = new MyGamepad(gamepad1);
-        this.gamepad1.registerListener(gamepadListener);
+        this.gamepad1.setCallBack(this);
         //motionModuleManualThread.start();
+
+    }
+
+    public void gamepadStartListen(){
+        gamepad1.startListen();
+    }
+
+    public void gamepadStopListen(){
+        gamepad1.stopListen();
     }
 
     public void pressA(){
@@ -68,7 +72,7 @@ public class FtcControllerImpl implements FtcController{
     }
 
     public void pressR1() {
-
+        shootingModule.shoot();
     }
 
     public void pressL1() {
@@ -76,7 +80,7 @@ public class FtcControllerImpl implements FtcController{
     }
 
     public void pressThumbR() {
-        shootingModule.shoot();
+
     }
 
     public void pressThumbL() {
@@ -90,7 +94,7 @@ public class FtcControllerImpl implements FtcController{
     public boolean isMotionModuleManual(){
         return isMotionModuleManual;
     }
-
+/*
     Thread motionModuleManualThread = new Thread(new Runnable(){
         @Override
         public void run() {
@@ -112,131 +116,130 @@ public class FtcControllerImpl implements FtcController{
     },"MotionModule") {
     };
 
-
-    GamepadListener gamepadListener = new GamepadListener() {
-        @Override
-        public void motionChanged(MotionEvent event) {
-
-        }
-
-        @Override
-        public void keyChanged(KeyEvent event) {
-                switch (event.getKeyCode()) {
-                    case KeyEvent.KEYCODE_BUTTON_A:
-                        pressA();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_B:
-                        pressB();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_X:
-                        pressX();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_Y:
-                        pressY();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_R1:
-                        pressR1();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_L1:
-                        pressL1();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_THUMBR:
-                        pressThumbR();
-                        break;
-                    case KeyEvent.KEYCODE_BUTTON_THUMBL:
-                        pressThumbL();
-                        break;
-                    default:
-                        //do nothing
-                        break;
-                }
-            }
-    };
-
+ */
 }
 
+class MyGamepad{
+    CallBack callBack;
+    private Gamepad gamepad;
+    private HashMap<Integer,Pair<Boolean,Long>> key;
+    private final long DEBOUNCE_TIME = 50;
+    private boolean isListening = false;
 
-/**
- * 重写Gamepad类
- * @see Gamepad
- * @author wfrfred
- * @Time 2021-04-04 1:15
- */
-
-class MyGamepad extends Gamepad{
-    private GamepadListener gamepadListener;
-    private HashMap<Integer,Long> lastDeBounceTime;//用于每个按钮分别除抖动
-    private final long DEDOUNCE_TIME = 50;//抖动时间
-
-    /**
-     * 用其他手柄创建
-     * @param gamepad1 用于绑定手柄
-     * @throws RobotCoreException 绑定失败后抛出
-     */
-    public MyGamepad(Gamepad gamepad1) throws RobotCoreException {
-        copy(gamepad1);
-        final long time = -System.currentTimeMillis();
-        //初始化抖动时间列表
-        lastDeBounceTime= new HashMap<Integer,Long>(){
+    MyGamepad(final Gamepad gamepad){
+        this.gamepad = gamepad;
+        final long time = System.currentTimeMillis();
+        key = new HashMap<Integer,Pair<Boolean,Long>>(){
             {
-                put(KeyEvent.KEYCODE_BUTTON_A,time);
-                put(KeyEvent.KEYCODE_BUTTON_B, time);
-                put(KeyEvent.KEYCODE_BUTTON_X, time);
-                put(KeyEvent.KEYCODE_BUTTON_Y, time);
-                put(KeyEvent.KEYCODE_BUTTON_R1, time);
-                put(KeyEvent.KEYCODE_BUTTON_L1, time);
-                put(KeyEvent.KEYCODE_BUTTON_THUMBL, time);
-                put(KeyEvent.KEYCODE_BUTTON_THUMBR, time);
+                put(0,new Pair<Boolean, Long>(false,time));
+                put(1,new Pair<Boolean, Long>(false,time));
+                put(2,new Pair<Boolean, Long>(false,time));
+                put(3,new Pair<Boolean, Long>(false,time));
+                put(4,new Pair<Boolean, Long>(false,time));
+                put(5,new Pair<Boolean, Long>(false,time));
+                put(6,new Pair<Boolean, Long>(false,time));
+                put(7,new Pair<Boolean, Long>(false,time));
             }
         };
+        listener.start();
     }
 
-    /**
-     * 调用监听器方法
-     */
-    @Override
-    public void update(MotionEvent event) {
-        super.update(event);
-        gamepadListener.motionChanged(event);
+    public void setCallBack(CallBack callBack){
+        this.callBack = callBack;
     }
 
-    /**
-     * 调用监听器方法
-     */
-    @Override
-    public void update(KeyEvent event) {
+    public void startListen(){
+        isListening = true;
+    }
+
+    public void stopListen(){
+        isListening = false;
+    }
+
+    Thread listener = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            if(isListening) {
+                if (key.get(0).first != gamepad.a) debounce(0);
+                if (key.get(1).first != gamepad.b) debounce(1);
+                if (key.get(2).first != gamepad.x) debounce(2);
+                if (key.get(3).first != gamepad.y) debounce(3);
+                if (key.get(4).first != gamepad.right_bumper) debounce(4);
+                if (key.get(5).first != gamepad.left_bumper) debounce(5);
+                if (key.get(6).first != gamepad.right_stick_button) debounce(6);
+                if (key.get(7).first != gamepad.left_stick_button) debounce(7);
+            }
+        }
+    });
+
+    private final long getTime(int keyCode){
+        return key.get(keyCode).second;
+    }
+
+    private final boolean getValue(int keyCode){
+        return key.get(keyCode).first;
+    }
+
+    private final void setKey(int keyCode,Pair newKey){
+        key.put(keyCode,newKey);
+    }
+
+    private final void debounce(int keyCode){
         //若上次更新时间到这次小于抖动时间，则判定为抖动，否则执行方法
-        long time = System.currentTimeMillis();
         //忽略与上次时间差过短
-        if((time-Math.abs(getTime(event)))<DEDOUNCE_TIME) return;
-        //用时间的正数表示按下状态，负数表示抬起状态，改变时重置
-        if(getTime(event)<0){
-            //第一次按下时改变为正值
-            setTime(event,time);
+        long time = System.currentTimeMillis();
+        if((time-Math.abs(getTime(keyCode)))<DEBOUNCE_TIME) return;
+        if(!getValue(keyCode)){
+            setKey(keyCode,new Pair(true,time));
             return;
         } else{
             //抬起时触发改变函数
-            setTime(event,-time);
-            super.update(event);
-            gamepadListener.keyChanged(event);
+            setKey(keyCode,new Pair(false,time));
+            switch (keyCode){
+                case 0:
+                    callBack.pressA();
+                    break;
+                case 1:
+                    callBack.pressB();
+                    break;
+                case 2:
+                    callBack.pressX();
+                    break;
+                case 3:
+                    callBack.pressY();
+                    break;
+                case 4:
+                    callBack.pressR1();
+                    break;
+                case 5:
+                    callBack.pressL1();
+                    break;
+                case 6:
+                    callBack.pressThumbR();
+                    break;
+                case 7:
+                    callBack.pressThumbL();
+                    break;
+
+            }
         }
     }
-
-    public void registerListener(GamepadListener gamepadListener){
-        this.gamepadListener = gamepadListener;
-    }
-
-    private final long getTime(KeyEvent event){
-        return lastDeBounceTime.get(event.getKeyCode());
-    }
-
-    private  final void setTime(KeyEvent event, long value){
-        lastDeBounceTime.put(event.getKeyCode(),value);
-    }
-
 }
 
-interface GamepadListener extends EventListener {
-    void motionChanged(MotionEvent event);
-    void keyChanged(KeyEvent event);
+interface CallBack{
+    void pressA();
+
+    void pressB();
+
+    void pressX();
+
+    void pressY();
+
+    void pressR1();
+
+    void pressL1();
+
+    void pressThumbR();
+
+    void pressThumbL();
 }

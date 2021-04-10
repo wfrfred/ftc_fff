@@ -10,18 +10,6 @@ package org.firstinspires.ftc.teamcode;
 public interface FtcController {
 
     /**
-     * 定义这些按键按下后发生的事件
-     */
-    void pressA();
-    void pressB();
-    void pressX();
-    void pressY();
-    void pressR1();
-    void pressL1();
-    void pressThumbR();
-    void pressThumbL();
-
-    /**
      * 启动摇杆操控运动模式
      * @param isMotionModuleManual
      * @warning 在操作电机时请将此设置为false，否则将被阻塞
@@ -34,4 +22,13 @@ public interface FtcController {
      */
     boolean isMotionModuleManual();
 
+    /**
+     * 启动手柄按键监听
+     */
+    void gamepadStartListen();
+
+    /**
+     * 关闭手柄按键监听
+     */
+    void gamepadStopListen();
 }

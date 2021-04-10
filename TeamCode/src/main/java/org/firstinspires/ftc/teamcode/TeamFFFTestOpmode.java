@@ -6,23 +6,30 @@ import com.qualcomm.robotcore.exception.RobotCoreException;
 
 @TeleOp(name="TeamFFFTestOpMode", group="FFF")
 public class TeamFFFTestOpmode extends OpMode {
-    MotionModuleImpl motionModule;
+    ShootingModuleImpl shootingModule;
     FtcControllerImpl controller;
 
 
 
     @Override
     public void init() {
-        motionModule = new MotionModuleImpl();
+        shootingModule = new ShootingModuleImpl(hardwareMap);
         try {
-            controller = new FtcControllerImpl(motionModule, null, null, null, gamepad1);
+            controller = new FtcControllerImpl(null, shootingModule, null, null, gamepad1);
         }catch(RobotCoreException e){
 
         }
+
     }
 
     @Override
     public void loop() {
-        controller.setMotionModuleManual();
+        controller.gamepadStartListen();
     }
+
+    @Override
+    public void stop(){
+        controller.gamepadStopListen();
+    }
+
 }
