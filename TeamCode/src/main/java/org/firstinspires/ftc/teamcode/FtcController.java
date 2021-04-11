@@ -27,8 +27,5 @@ public interface FtcController {
      */
     void gamepadStartListen();
 
-    /**
-     * 关闭手柄按键监听
-     */
-    void gamepadStopListen();
+
 }

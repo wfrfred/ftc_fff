@@ -4,6 +4,9 @@ import android.util.Pair;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import java.util.HashMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 统筹管理调用各类机器人模块
@@ -18,6 +21,7 @@ public class FtcControllerImpl implements FtcController,CallBack{
     private TransportModuleImpl transportModule;
     private RoboticArmModuleImpl roboticArmModule;
     private MyGamepad gamepad1;
+    private ExecutorService executorService;
 
     private boolean isMotionModuleManual = false;
 
@@ -45,30 +49,36 @@ public class FtcControllerImpl implements FtcController,CallBack{
         this.gamepad1.setCallBack(this);
         //motionModuleManualThread.start();
 
+        executorService = Executors.newCachedThreadPool();
+
     }
 
     public void gamepadStartListen(){
-        gamepad1.startListen();
-    }
-
-    public void gamepadStopListen(){
-        gamepad1.stopListen();
+        executorService.execute(gamepad1.getThread());
     }
 
     public void pressA(){
-        shootingModule.startMotor();
+        executorService.execute( new Thread( () -> {
+            shootingModule.startMotor();
+        } ));
     }
 
     public void pressB() {
-        shootingModule.stopMotor();
+        executorService.execute( new Thread( () -> {
+            shootingModule.stopMotor();
+        } ));
     }
 
     public void pressX() {
-        shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1);
+        executorService.execute( new Thread( () -> {
+            shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1);
+        } ));
     }
 
     public void pressY() {
-        shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1);
+        executorService.execute( new Thread( () -> {
+            shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1);
+        } ));
     }
 
     public void pressR1() {
@@ -94,7 +104,7 @@ public class FtcControllerImpl implements FtcController,CallBack{
     public boolean isMotionModuleManual(){
         return isMotionModuleManual;
     }
-/*
+
     Thread motionModuleManualThread = new Thread(new Runnable(){
         @Override
         public void run() {
@@ -102,9 +112,9 @@ public class FtcControllerImpl implements FtcController,CallBack{
                 if(isMotionModuleManual) {
                     synchronized (motionModule) {
                         motionModule.moveGamepad(
-                                gamepad1.left_stick_x,
-                                gamepad1.right_stick_y,
-                                gamepad1.left_stick_x,
+                                gamepad1.getMotion(0),
+                                -gamepad1.getMotion(1),
+                                -gamepad1.getMotion(2),
                                 1
                         );
                     }
@@ -116,7 +126,6 @@ public class FtcControllerImpl implements FtcController,CallBack{
     },"MotionModule") {
     };
 
- */
 }
 
 class MyGamepad{
@@ -148,14 +157,9 @@ class MyGamepad{
         this.callBack = callBack;
     }
 
-    public void startListen(){
-        isListening = true;
+    public Thread getThread(){
+        return listener;
     }
-
-    public void stopListen(){
-        isListening = false;
-    }
-
     Thread listener = new Thread(new Runnable() {
         @Override
         public void run() {
@@ -170,7 +174,25 @@ class MyGamepad{
                 if (key.get(7).first != gamepad.left_stick_button) debounce(7);
             }
         }
-    });
+    },"Listener");
+
+    public float getMotion(int code){
+        switch (code){
+            case 0:
+                return gamepad.right_stick_x;
+            case 1:
+                return gamepad.right_stick_y;
+            case 2:
+                return gamepad.left_stick_x;
+            case 3:
+                return gamepad.left_stick_y;
+            case 4:
+                return gamepad.right_trigger;
+            case 5:
+                return gamepad.left_trigger;
+        }
+        return 0;
+    }
 
     private final long getTime(int keyCode){
         return key.get(keyCode).second;
@@ -220,7 +242,6 @@ class MyGamepad{
                 case 7:
                     callBack.pressThumbL();
                     break;
-
             }
         }
     }
