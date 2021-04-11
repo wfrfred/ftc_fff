@@ -19,17 +19,18 @@ public class TeamFFFTestOpmode extends OpMode {
         }catch(RobotCoreException e){
 
         }
-
+        controller.startMotionModuleManualThread();
+        controller.startGamepadListening();
     }
 
     @Override
     public void loop() {
-        controller.gamepadStartListen();
+        controller.setIsMotionModuleManual(true);
     }
 
     @Override
     public void stop(){
-        controller.gamepadStopListen();
+
     }
 
 }

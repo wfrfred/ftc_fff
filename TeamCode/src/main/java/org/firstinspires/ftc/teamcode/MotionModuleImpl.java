@@ -78,28 +78,22 @@ public class MotionModuleImpl implements MotionModule{
             //若手动，返回Power
             if (motor == "leftFront") {
                 return lFront;
-            }
-            if (motor == "leftBack") {
+            }else if (motor == "leftBack") {
                 return lBack;
-            }
-            if (motor == "rightFront") {
+            }else if (motor == "rightFront") {
                 return rFront;
-            }
-            if (motor == "rightBack") {
+            }else if (motor == "rightBack") {
                 return rBack;
             }
         }else {
             //若程序控制，返回角速度
             if (motor == "leftFront") {
                 return leftFront.getVelocity();
-            }
-            if (motor == "leftBack") {
+            }else if (motor == "leftBack") {
                 return leftBack.getVelocity();
-            }
-            if (motor == "rightFront") {
+            }else if (motor == "rightFront") {
                 return rightFront.getVelocity();
-            }
-            if (motor == "rightBack") {
+            }else if (motor == "rightBack") {
                 return rightBack.getVelocity();
             }
         }

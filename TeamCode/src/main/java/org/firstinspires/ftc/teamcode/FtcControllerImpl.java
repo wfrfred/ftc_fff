@@ -41,48 +41,63 @@ public class FtcControllerImpl implements FtcController,CallBack{
      * @throws RobotCoreException 复制手柄时可能出现无法绑定
      */
     FtcControllerImpl(MotionModuleImpl motionModule, ShootingModuleImpl shootingModule, TransportModuleImpl transportModule, RoboticArmModuleImpl roboticArmModule, Gamepad gamepad1) throws RobotCoreException {
-        //this.motionModule = motionModule;
+        this.motionModule = motionModule;
         this.shootingModule = shootingModule;
-        //this.transportModule = transportModule;
-        //this.roboticArmModule = roboticArmModule;
+        this.transportModule = transportModule;
+        this.roboticArmModule = roboticArmModule;
         this.gamepad1 = new MyGamepad(gamepad1);
         this.gamepad1.setCallBack(this);
-        //motionModuleManualThread.start();
+        this.gamepad1.getThread().start();
 
         executorService = Executors.newCachedThreadPool();
-
     }
 
-    public void gamepadStartListen(){
-        executorService.execute(gamepad1.getThread());
+    public void startGamepadListening(){
+        gamepad1.getThread().start();
+    }
+
+    public void startMotionModuleManualThread(){
+        motionModuleManualThread.start();
+    }
+
+    public void setIsMotionModuleManual(boolean isMotionModuleManual){
+        this.isMotionModuleManual = isMotionModuleManual;
     }
 
     public void pressA(){
-        executorService.execute( new Thread( () -> {
+        executorService.submit( new Thread( () -> {
             shootingModule.startMotor();
         } ));
     }
 
     public void pressB() {
-        executorService.execute( new Thread( () -> {
+        executorService.submit( new Thread( () -> {
             shootingModule.stopMotor();
         } ));
     }
 
     public void pressX() {
-        executorService.execute( new Thread( () -> {
+        executorService.submit( new Thread( () -> {
             shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1);
         } ));
     }
 
     public void pressY() {
-        executorService.execute( new Thread( () -> {
+        executorService.submit( new Thread( () -> {
             shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1);
         } ));
     }
 
     public void pressR1() {
-        shootingModule.shoot();
+        executorService.submit( new Thread( () -> {
+            try {
+                motionModuleManualThread.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            shootingModule.shoot();
+            motionModuleManualThread.notify();
+        } ));
     }
 
     public void pressL1() {
@@ -97,57 +112,58 @@ public class FtcControllerImpl implements FtcController,CallBack{
 
     }
 
-    public void setMotionModuleManual(boolean isMotionModuleManual){
-        this.isMotionModuleManual = isMotionModuleManual;
-    }
-
-    public boolean isMotionModuleManual(){
-        return isMotionModuleManual;
-    }
-
-    Thread motionModuleManualThread = new Thread(new Runnable(){
-        @Override
-        public void run() {
+    Thread motionModuleManualThread = new Thread( (Runnable) () ->{
             while(true){
                 if(isMotionModuleManual) {
                     synchronized (motionModule) {
                         motionModule.moveGamepad(
-                                gamepad1.getMotion(0),
-                                -gamepad1.getMotion(1),
-                                -gamepad1.getMotion(2),
-                                1
+                                gamepad1.getMotion(gamepad1.LEFT_STICK_Y),
+                                -gamepad1.getMotion(gamepad1.RIGHT_STICK_X),
+                                -gamepad1.getMotion(gamepad1.RIGHT_STICK_Y),
+                                1 - gamepad1.getMotion(gamepad1.RIGHT_TRIGGER)
                         );
                     }
-                }else{
-                    //do something
                 }
             }
-        }
-    },"MotionModule") {
-    };
+    },"MotionModule");
 
 }
 
 class MyGamepad{
-    CallBack callBack;
+    private CallBack callBack;
     private Gamepad gamepad;
     private HashMap<Integer,Pair<Boolean,Long>> key;
     private final long DEBOUNCE_TIME = 50;
     private boolean isListening = false;
+
+    public final int A = 0;
+    public final int B = 1;
+    public final int X = 2;
+    public final int Y = 3;
+    public final int RIGHT_BUMPER = 4;
+    public final int LEFT_BUMPER = 5;
+    public final int RIGHT_STICK_BUTTON = 6;
+    public final int LEFT_STICK_BUTTON = 7;
+    public final int RIGHT_STICK_X = 8;
+    public final int RIGHT_STICK_Y = 9;
+    public final int LEFT_STICK_X = 10;
+    public final int LEFT_STICK_Y = 11;
+    public final int RIGHT_TRIGGER = 12;
+    public final int LEFT_TRIGGER = 13;
 
     MyGamepad(final Gamepad gamepad){
         this.gamepad = gamepad;
         final long time = System.currentTimeMillis();
         key = new HashMap<Integer,Pair<Boolean,Long>>(){
             {
-                put(0,new Pair<Boolean, Long>(false,time));
-                put(1,new Pair<Boolean, Long>(false,time));
-                put(2,new Pair<Boolean, Long>(false,time));
-                put(3,new Pair<Boolean, Long>(false,time));
-                put(4,new Pair<Boolean, Long>(false,time));
-                put(5,new Pair<Boolean, Long>(false,time));
-                put(6,new Pair<Boolean, Long>(false,time));
-                put(7,new Pair<Boolean, Long>(false,time));
+                put(A,new Pair<Boolean, Long>(false,time));
+                put(B,new Pair<Boolean, Long>(false,time));
+                put(X,new Pair<Boolean, Long>(false,time));
+                put(Y,new Pair<Boolean, Long>(false,time));
+                put(RIGHT_BUMPER,new Pair<Boolean, Long>(false,time));
+                put(LEFT_BUMPER,new Pair<Boolean, Long>(false,time));
+                put(RIGHT_STICK_BUTTON,new Pair<Boolean, Long>(false,time));
+                put(LEFT_STICK_BUTTON,new Pair<Boolean, Long>(false,time));
             }
         };
         listener.start();
@@ -160,35 +176,42 @@ class MyGamepad{
     public Thread getThread(){
         return listener;
     }
-    Thread listener = new Thread(new Runnable() {
+
+    public void setIsListening(boolean isListening){
+        this.isListening = isListening;
+    }
+
+    private Thread listener = new Thread(new Runnable() {
         @Override
         public void run() {
-            if(isListening) {
-                if (key.get(0).first != gamepad.a) debounce(0);
-                if (key.get(1).first != gamepad.b) debounce(1);
-                if (key.get(2).first != gamepad.x) debounce(2);
-                if (key.get(3).first != gamepad.y) debounce(3);
-                if (key.get(4).first != gamepad.right_bumper) debounce(4);
-                if (key.get(5).first != gamepad.left_bumper) debounce(5);
-                if (key.get(6).first != gamepad.right_stick_button) debounce(6);
-                if (key.get(7).first != gamepad.left_stick_button) debounce(7);
+            while(true) {
+                if (isListening) {
+                    if (key.get(A).first != gamepad.a) debounce(A);
+                    if (key.get(B).first != gamepad.b) debounce(B);
+                    if (key.get(X).first != gamepad.x) debounce(X);
+                    if (key.get(Y).first != gamepad.y) debounce(Y);
+                    if (key.get(RIGHT_BUMPER).first != gamepad.right_bumper) debounce(RIGHT_BUMPER);
+                    if (key.get(LEFT_BUMPER).first != gamepad.left_bumper) debounce(LEFT_BUMPER);
+                    if (key.get(RIGHT_STICK_BUTTON).first != gamepad.right_stick_button) debounce(RIGHT_STICK_BUTTON);
+                    if (key.get(LEFT_STICK_BUTTON).first != gamepad.left_stick_button) debounce(LEFT_STICK_BUTTON);
+                }
             }
         }
     },"Listener");
 
     public float getMotion(int code){
         switch (code){
-            case 0:
+            case RIGHT_STICK_X:
                 return gamepad.right_stick_x;
-            case 1:
+            case RIGHT_STICK_Y:
                 return gamepad.right_stick_y;
-            case 2:
+            case LEFT_STICK_X:
                 return gamepad.left_stick_x;
-            case 3:
+            case LEFT_STICK_Y:
                 return gamepad.left_stick_y;
-            case 4:
+            case RIGHT_TRIGGER:
                 return gamepad.right_trigger;
-            case 5:
+            case LEFT_TRIGGER:
                 return gamepad.left_trigger;
         }
         return 0;
@@ -218,28 +241,28 @@ class MyGamepad{
             //抬起时触发改变函数
             setKey(keyCode,new Pair(false,time));
             switch (keyCode){
-                case 0:
+                case A:
                     callBack.pressA();
                     break;
-                case 1:
+                case B:
                     callBack.pressB();
                     break;
-                case 2:
+                case X:
                     callBack.pressX();
                     break;
-                case 3:
+                case Y:
                     callBack.pressY();
                     break;
-                case 4:
+                case RIGHT_BUMPER:
                     callBack.pressR1();
                     break;
-                case 5:
+                case LEFT_BUMPER:
                     callBack.pressL1();
                     break;
-                case 6:
+                case RIGHT_STICK_BUTTON:
                     callBack.pressThumbR();
                     break;
-                case 7:
+                case LEFT_STICK_BUTTON:
                     callBack.pressThumbL();
                     break;
             }
