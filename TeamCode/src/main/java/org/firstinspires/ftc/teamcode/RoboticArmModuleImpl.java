@@ -44,7 +44,7 @@ public class RoboticArmModuleImpl implements RoboticArmModule{
     else if
       handServo.setPosition(0);      
   }
-  //@see True时，打开手掌；Flase时，握紧手掌(参数可能不太对)
+  //@see True时，打开手掌；Flase时，握紧手掌(参数可能不太对。)
   
   
 }
