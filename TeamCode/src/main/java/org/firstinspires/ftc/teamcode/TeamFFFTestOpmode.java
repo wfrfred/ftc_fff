@@ -9,23 +9,18 @@ public class TeamFFFTestOpmode extends OpMode {
     ShootingModuleImpl shootingModule;
     FtcControllerImpl controller;
 
-
-
     @Override
     public void init() {
         shootingModule = new ShootingModuleImpl(hardwareMap);
-        try {
-            controller = new FtcControllerImpl(null, shootingModule, null, null, gamepad1);
-        }catch(RobotCoreException e){
-
-        }
-        controller.startMotionModuleManualThread();
+        controller = new FtcControllerImpl(null, shootingModule, null, null, gamepad1);
+        //controller.startMotionModuleManualThread();
         controller.startGamepadListening();
     }
 
     @Override
     public void loop() {
-        controller.setIsMotionModuleManual(true);
+        controller.setIsListening(true);
+        //controller.setIsMotionModuleManual(true);
     }
 
     @Override

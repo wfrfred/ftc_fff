@@ -4,12 +4,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
 public class ShootingModuleImpl implements ShootingModule{
-    private DcMotor shootMotor;
-    private Servo pushServo;
-    private long startTime = 0;
+    private final DcMotor shootMotor;
+    private final Servo pushServo;
+    private final AtomicLong startTime = new AtomicLong(0);
     private final float SHOOT_POSITION = 0.9f;
-    private int bulletAmount = 0;
+    private final AtomicInteger bulletAmount = new AtomicInteger(3);
 
     ShootingModuleImpl(HardwareMap hardwareMap){
         shootMotor = hardwareMap.dcMotor.get("shootMotor");
@@ -17,24 +20,28 @@ public class ShootingModuleImpl implements ShootingModule{
     }
 
     public void shoot(){
-        if(startTime !=0&&System.currentTimeMillis()-startTime>1000){
-            while(bulletAmount !=0){
+        if(startTime.get()!=0 && (System.currentTimeMillis()-startTime.get())>1000){
+            while(bulletAmount.get()!=0){
                 push(SHOOT_POSITION);
                 resetServo();
             }
         }else{
-
+            //Do nothing
         }
     }
 
     public void startMotor(){
-        shootMotor.setPower(1f);
-        startTime = System.currentTimeMillis();
+        synchronized (shootMotor) {
+            shootMotor.setPower(1f);
+        }
+        startTime.set(System.currentTimeMillis());
     }
 
     public void stopMotor() {
-        shootMotor.setPower(0f);
-        startTime = 0;
+        synchronized (shootMotor) {
+            shootMotor.setPower(0f);
+        }
+        startTime.set(0);
     }
 
     public void aim(){
@@ -42,27 +49,31 @@ public class ShootingModuleImpl implements ShootingModule{
     }
 
     private void push(double position){
-        pushServo.setPosition(position);
-        --bulletAmount;
-        while(pushServo.getPosition()==position) {
-            return;
+        synchronized (pushServo) {
+            pushServo.setPosition(position);
+            bulletAmount.getAndIncrement();
+            while (pushServo.getPosition() == position) {
+                return;
+            }
         }
     }
 
     private void resetServo(){
-        pushServo.setPosition(0f);
-        while(pushServo.getPosition()==0f) {
-            return;
+        synchronized (pushServo){
+            pushServo.setPosition(0f);
+            while(pushServo.getPosition()==0f) {
+                return;
+            }
         }
     }
 
     public int getBulletAmount() {
-        return bulletAmount;
+        return bulletAmount.get();
     }
 
-    public void setBulletAmount(int bulletAmount) {
+    public synchronized void setBulletAmount(int bulletAmount) {
         if(bulletAmount>=0&&bulletAmount<=3) {
-            this.bulletAmount = bulletAmount;
+            this.bulletAmount.set(bulletAmount);
         }
     }
 }
