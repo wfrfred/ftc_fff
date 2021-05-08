@@ -1,65 +1,71 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.SAXException;
+import java.util.Properties;
 
     /**
      * @author RL
      * @Time 2021/4/4  20:52
+     * @version 1.0
      */
 
 public class MotionModuleImpl implements MotionModule{
-    private DcMotorEx leftFront;
-    private DcMotorEx leftBack;
-    private DcMotorEx rightFront;
-    private DcMotorEx rightBack;
+    private DcMotor leftFront;
+    private DcMotor leftBack;
+    private DcMotor rightFront;
+    private DcMotor rightBack;
     private double lFront = 0;
     private double rFront = 0;
     private double lBack = 0;
     private double rBack = 0;
     private boolean runningMode = false;
+    private double maxAngleSpeed = 3600;
+
+    MotionModuleImpl(HardwareMap hardwareMap){
+        leftFront = hardwareMap.dcMotor.get("l1");
+        leftBack = hardwareMap.dcMotor.get("l2");
+        rightFront = hardwareMap.dcMotor.get("r1");
+        rightBack = hardwareMap.dcMotor.get("r2");
+    }
 
     public void setSpeed(double angleSpeed) {
         /*
         将前后平动的速度均匀分配到每个马达
         */
-        this.runningMode = false;
-        leftFront.setVelocity(angleSpeed);
-        leftBack.setVelocity(angleSpeed);
-        rightFront.setVelocity(angleSpeed);
-        rightBack.setVelocity(angleSpeed);
+        angleSpeed /= maxAngleSpeed;
+        runningMode = false;
+        leftFront.setPower(angleSpeed);
+        leftBack.setPower(angleSpeed);
+        rightFront.setPower(angleSpeed);
+        rightBack.setPower(angleSpeed);
     }
     public void turn(double angleSpeed) {
         /*
         将速度均匀分配到每个马达，右侧反向
         */
-        this.runningMode = false;
-        leftFront.setVelocity(angleSpeed);
-        leftBack.setVelocity(angleSpeed);
-        rightFront.setVelocity(-angleSpeed);
-        rightBack.setVelocity(-angleSpeed);
+        runningMode = false;
+        leftFront.setPower(angleSpeed);
+        leftBack.setPower(angleSpeed);
+        rightFront.setPower(-angleSpeed);
+        rightBack.setPower(-angleSpeed);
     }
     public void moveGamepad(double move , double turn , double fun , double k) {
-        this.runningMode = true;
+        runningMode = true;
         //计算每个电机
         this.lFront= (move + turn + fun)*k;
         this.lBack = (move + turn - fun)*k;
         this.rFront= (move - turn - fun)*k;
         this.rBack = (move - turn + fun)*k;
 
-        double max=0;
         //找四个值中绝对值最大的值
-        if (Math.abs(this.lFront)>Math.abs(this.lBack)){
-            max = Math.abs(this.lFront);
-        } else{
-            max = Math.abs(this.lBack);
-        }
-        if (Math.abs(this.rFront)>Math.abs(max)){
-            max = Math.abs(this.rFront);
-        }
-        if (Math.abs(this.rBack)>Math.abs(max)){
-            max = Math.abs(this.rBack);
-        }
-        
+        double max = Math.max(Math.abs(this.lFront), Math.abs(this.lBack));
+        max = Math.max(max,Math.abs(this.rFront));
+        max = Math.max(max,Math.abs(this.rBack));
+
         if (max>1){
             this.lFront /= max;
             this.lBack  /= max;
@@ -76,25 +82,25 @@ public class MotionModuleImpl implements MotionModule{
     public double getState(String motor)throws IllegalArgumentException {
         if (runningMode) {
             //若手动，返回Power
-            if (motor == "leftFront") {
+            if (motor.equals("leftFront")) {
                 return lFront;
-            }else if (motor == "leftBack") {
+            }else if (motor.equals("leftBack")) {
                 return lBack;
-            }else if (motor == "rightFront") {
+            }else if (motor.equals("rightFront")) {
                 return rFront;
-            }else if (motor == "rightBack") {
+            }else if (motor.equals("rightBack")) {
                 return rBack;
             }
         }else {
             //若程序控制，返回角速度
-            if (motor == "leftFront") {
-                return leftFront.getVelocity();
-            }else if (motor == "leftBack") {
-                return leftBack.getVelocity();
-            }else if (motor == "rightFront") {
-                return rightFront.getVelocity();
-            }else if (motor == "rightBack") {
-                return rightBack.getVelocity();
+            if (motor.equals("leftFront")) {
+                return leftFront.getPower();
+            }else if (motor.equals("leftBack")) {
+                return leftBack.getPower();
+            }else if (motor.equals("rightFront")) {
+                return rightFront.getPower();
+            }else if (motor.equals("rightBack")) {
+                return rightBack.getPower();
             }
         }
         throw(new IllegalArgumentException());

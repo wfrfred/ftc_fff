@@ -8,7 +8,7 @@ package org.firstinspires.ftc.teamcode;
  * @Time 2021/4/4  20:52
  */
 
-public interface MotionModule {
+public interface MotionModule{
 
 
     /**

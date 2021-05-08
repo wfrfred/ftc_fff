@@ -8,10 +8,13 @@ package org.firstinspires.ftc.teamcode;
  */
 
 public interface FtcController {
+
     /**
      * 启动手柄按键监听
      */
-    void startGamepadListening();
+    void startGamepadListening()throws NullPointerException;
+    void setIsListening(boolean isListening);
+    boolean getIsListening();
 
 
 }

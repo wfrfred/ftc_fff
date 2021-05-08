@@ -1,51 +1,69 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class RoboticArmModuleImpl implements RoboticArmModule{
-  
-  private long degree=0;
-  private Servo armServo;
-  private Servo handServo;
-  private boolean signal=False;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-  public void init() {
-        handServo = hardwareMap.servo.get("handServo");
-        armServo = hardwareMap.servo.get("armServo");
-  } 
-  
-  
-  public void getdegree(){
-    return degree;    
+/**
+ * @author wfrfred
+ * @Time 2021-05-08 23:20
+ * @version 1.2
+ */
+public class RoboticArmModuleImpl implements RoboticArmModule {
+
+  private final Servo armServo;
+  private final Servo handServo;
+  private final AtomicBoolean armStatus = new AtomicBoolean(ARM_UP);
+  private final AtomicBoolean isGrabbed = new AtomicBoolean(false);
+
+  RoboticArmModuleImpl(HardwareMap hardwareMap) {
+    handServo = hardwareMap.servo.get("handServo");
+    armServo = hardwareMap.servo.get("armServo");
   }
-  
-  
-  public void putdownarm(){
-    if (this.degree==20){
-      armServo.setPosition(90);
-      signal=True;
+
+  public void goToTarget(MotionModule motionModule) {
+
+  }
+
+  public void liftArm() {
+    if(armStatus.compareAndSet(ARM_DOWN,ARM_UP)){
+      synchronized (armServo){
+        armServo.setPosition(90);
+      }
     }
-  }  
-  //@param 当手臂向下时，signal标为True，手掌打开；
-  //当手臂向上举时，signal变为False，手掌握紧抓住摇摆物
-  
-  
-  public void putuparm(){
-    if(armServo.getPosition==90){
-      armServo.setPosition(0);
-      siganl=False;
+  }
+
+  public void putDownArm() {
+    if(armStatus.compareAndSet(ARM_UP,ARM_DOWN)){
+      synchronized (armServo){
+        armServo.setPosition(0);
+      }
     }
   }
-  
-  
-  public void grab(){
-    if(siganl)
-      handServo.setPosition(90);
-    else if
-      handServo.setPosition(0);      
+
+  public void grab() {
+    if(armStatus.get()==ARM_DOWN&&isGrabbed.compareAndSet(false,true)){
+      synchronized (handServo){
+        handServo.setPosition(0);
+      }
+    }
   }
-  //@see True时，打开手掌；Flase时，握紧手掌(参数可能不太对。)
-  
-  
+
+  public void release(){
+    if(armStatus.get()==ARM_DOWN&&isGrabbed.compareAndSet(true,false)){
+      synchronized (handServo){
+        handServo.setPosition(90);
+      }
+    }
+  }
+
+  public boolean isGrabbed() {
+    return isGrabbed.get();
+  }
+
+  public boolean getArmStatus() {
+    return armStatus.get();
+  }
 }
 
