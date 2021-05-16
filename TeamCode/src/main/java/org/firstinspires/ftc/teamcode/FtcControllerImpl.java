@@ -20,40 +20,25 @@ public class FtcControllerImpl extends AbstractFtcController{
         @Override
         public void pressA(){
             shootingModule.startMotor();
-            //executorService.submit( new Thread( () -> shootingModule.startMotor()));
         }
 
         @Override
         public void pressB() {
             shootingModule.stopMotor();
-            //executorService.submit( new Thread( () -> shootingModule.stopMotor()));
         }
 
         @Override
         public void pressX() {
             shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1);
-            //executorService.submit( new Thread( () -> shootingModule.setBulletAmount(shootingModule.getBulletAmount()+1)));
         }
 
         @Override
         public void pressY() {
             shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1);
-            //executorService.submit( new Thread( () -> shootingModule.setBulletAmount(shootingModule.getBulletAmount()-1)));
         }
 
         @Override
         public void pressR1() {
-        /*
-        executorService.submit( new Thread( () -> {
-            try {
-                motionModuleManualThread.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            shootingModule.shoot();
-            motionModuleManualThread.notify();
-        } ));
-        */
             shootingModule.shoot();
         }
 

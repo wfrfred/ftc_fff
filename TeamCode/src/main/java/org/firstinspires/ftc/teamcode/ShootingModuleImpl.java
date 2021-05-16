@@ -21,7 +21,7 @@ public class ShootingModuleImpl implements ShootingModule{
 
     public void shoot(){
         if(startTime.get()!=0 && (System.currentTimeMillis()-startTime.get())>1000){
-            while(bulletAmount.get()!=0){
+            while(bulletAmount.get()>0){
                 push(SHOOT_POSITION);
                 resetServo();
             }
@@ -51,9 +51,11 @@ public class ShootingModuleImpl implements ShootingModule{
     private void push(double position){
         synchronized (pushServo) {
             pushServo.setPosition(position);
-            bulletAmount.getAndIncrement();
-            while (pushServo.getPosition() == position) {
-                return;
+            bulletAmount.getAndDecrement();
+            try{
+                Thread.sleep(800);
+            } catch(InterruptedException e){
+
             }
         }
     }
@@ -61,8 +63,10 @@ public class ShootingModuleImpl implements ShootingModule{
     private void resetServo(){
         synchronized (pushServo){
             pushServo.setPosition(0f);
-            while(pushServo.getPosition()==0f) {
-                return;
+            try{
+                Thread.sleep(800);
+            } catch(InterruptedException e){
+
             }
         }
     }
