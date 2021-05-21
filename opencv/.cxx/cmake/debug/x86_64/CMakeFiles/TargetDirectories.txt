@@ -1,3 +1,0 @@
-F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/opencv_jni_shared.dir
-F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
-F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir
