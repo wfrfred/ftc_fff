@@ -2,16 +2,13 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public abstract class AbstractFtcController implements FtcController{
     protected final MotionModule motionModule ;
     protected final ShootingModule shootingModule;
     protected final TransportModule transportModule;
     protected final RoboticArmModule roboticArmModule;
+    protected final CVModule cvModule;
     protected final MyGamepad gamepad1;
-    protected final ExecutorService executorService;
     protected GamepadListener gamepadListener;
 
     /**
@@ -28,13 +25,14 @@ public abstract class AbstractFtcController implements FtcController{
      * @see MyGamepad
      * @see Gamepad
      */
-    AbstractFtcController(MotionModule motionModule, ShootingModule shootingModule, TransportModule transportModule, RoboticArmModule roboticArmModule, Gamepad gamepad1) {
+    AbstractFtcController(MotionModule motionModule, ShootingModule shootingModule, TransportModule transportModule, RoboticArmModule roboticArmModule, CVModule cvModule, Gamepad gamepad1) {
         this.motionModule = motionModule;
         this.shootingModule = shootingModule;
         this.transportModule = transportModule;
         this.roboticArmModule = roboticArmModule;
+        this.cvModule = cvModule;
         this.gamepad1 = new MyGamepad(gamepad1);
-        executorService = Executors.newCachedThreadPool();
+        init();
     }
 
     public void setGamepadListener(GamepadListener gamepadListener){
@@ -57,5 +55,7 @@ public abstract class AbstractFtcController implements FtcController{
     public boolean getIsListening() {
         return gamepad1.getIsListening();
     }
+
+    public abstract void init();
 
 }

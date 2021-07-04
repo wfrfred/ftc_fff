@@ -18,9 +18,6 @@ android {
     }
 }
 
-dependencies {
-    implementation project(path: ':opencv')
-}
 
 repositories {
     flatDir {

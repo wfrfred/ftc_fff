@@ -1,19 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.util.Pair;
 
 public interface CVModule {
 
-    /**
-     *
-     */
     boolean isBlocked();
 
-    Pair<Double, Double> getLocation();
+    double[] getLocation();
 
-    double getCAngle();
+    double getAngle();
 
-    Pair<Double, Double> getTarget();
+    double[] getTarget();
 
     int getMode();
 

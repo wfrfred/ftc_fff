@@ -21,7 +21,7 @@ ANDROID_ABI:UNINITIALIZED=x86
 ANDROID_NDK:UNINITIALIZED=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462
 
 //No help, variable specified on the command line.
-ANDROID_PLATFORM:UNINITIALIZED=android-21
+ANDROID_PLATFORM:UNINITIALIZED=android-19
 
 //No help, variable specified on the command line.
 ANDROID_STL:UNINITIALIZED=c++_shared
@@ -205,7 +205,7 @@ CMAKE_STRIP:FILEPATH=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolc
 CMAKE_SYSTEM_NAME:UNINITIALIZED=Android
 
 //No help, variable specified on the command line.
-CMAKE_SYSTEM_VERSION:UNINITIALIZED=21
+CMAKE_SYSTEM_VERSION:UNINITIALIZED=19
 
 //The CMake toolchain file
 CMAKE_TOOLCHAIN_FILE:FILEPATH=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/build/cmake/android.toolchain.cmake

@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name="TeamFFFDriveOpMode", group="FFF")
 public class TeamFFFDriveOpMode extends OpMode {
+
     private DcMotor l1,l2,r1,r2;
     private double k;
 
@@ -27,8 +28,8 @@ public class TeamFFFDriveOpMode extends OpMode {
     public void loop() {
         //读取手柄：前进 转向 横向
         double move = gamepad1.left_stick_y;
-        double fun = -gamepad1.left_stick_x;
         double turn= -gamepad1.right_stick_x;
+        double fun = -gamepad1.left_stick_x;
 
         if (gamepad1.right_bumper){
             k = 0.25;

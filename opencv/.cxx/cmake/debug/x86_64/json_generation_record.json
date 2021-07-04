@@ -1,7 +1,7 @@
 [
   {
     "level": "INFO",
-    "message": "Start JSON generation. Platform version: 21 min SDK version: x86_64",
+    "message": "Start JSON generation. Platform version: 19 min SDK version: x86_64",
     "file": "F:\\Fredwei\\github\\ftc_fff\\opencv\\libcxx_helper\\CMakeLists.txt",
     "tag": "debug|x86_64"
   },
@@ -20,6 +20,12 @@
   {
     "level": "INFO",
     "message": "- CMake found in SDK at \u0027F:\\Fredwei\\AndroidStudioProjects\\SDK\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
+    "file": "F:\\Fredwei\\github\\ftc_fff\\opencv\\libcxx_helper\\CMakeLists.txt",
+    "tag": "debug|x86_64"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.18.1\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
     "file": "F:\\Fredwei\\github\\ftc_fff\\opencv\\libcxx_helper\\CMakeLists.txt",
     "tag": "debug|x86_64"
   },

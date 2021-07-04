@@ -17,7 +17,7 @@
 rule CXX_COMPILER__opencv_jni_shared
   depfile = $DEP_FILE
   deps = gcc
-  command = F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=i686-none-linux-android21 --gcc-toolchain=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=i686-none-linux-android19 --gcc-toolchain=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
