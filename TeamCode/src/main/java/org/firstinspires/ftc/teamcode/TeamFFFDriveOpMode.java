@@ -5,10 +5,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp(name="TeamFFFDriveOpMode", group="FFF")
+@TeleOp(name = "TeamFFFDriveOpMode", group = "FFF")
 public class TeamFFFDriveOpMode extends OpMode {
 
-    private DcMotor l1,l2,r1,r2;
+    private DcMotor l1, l2, r1, r2;
     private double k;
 
     @Override
@@ -28,21 +28,21 @@ public class TeamFFFDriveOpMode extends OpMode {
     public void loop() {
         //读取手柄：前进 转向 横向
         double move = gamepad1.left_stick_y;
-        double turn= -gamepad1.right_stick_x;
+        double turn = -gamepad1.right_stick_x;
         double fun = -gamepad1.left_stick_x;
 
-        if (gamepad1.right_bumper){
+        if (gamepad1.right_bumper) {
             k = 0.25;
-        } else{
+        } else {
             k = 1;
         }
 
 
         //计算每个电机
-        double first = (move + turn + fun)*k;
-        double second = (move + turn - fun)*k;
-        double third = (move - turn - fun)*k;
-        double fourth = (move - turn + fun)*k;
+        double first = (move + turn + fun) * k;
+        double second = (move + turn - fun) * k;
+        double third = (move - turn - fun) * k;
+        double fourth = (move - turn + fun) * k;
 
         l1.setPower(first);
         l2.setPower(second);
@@ -52,6 +52,6 @@ public class TeamFFFDriveOpMode extends OpMode {
     }
 
     @Override
-    public void stop(){
+    public void stop() {
     }
 }

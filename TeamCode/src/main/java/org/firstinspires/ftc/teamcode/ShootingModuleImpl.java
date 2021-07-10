@@ -7,30 +7,30 @@ import com.qualcomm.robotcore.hardware.Servo;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class ShootingModuleImpl implements ShootingModule{
+public class ShootingModuleImpl implements ShootingModule {
     private final DcMotor shootMotor;
     private final Servo pushServo;
     private final AtomicLong startTime = new AtomicLong(0);
     private final float SHOOT_POSITION = 0.9f;
     private final AtomicInteger bulletAmount = new AtomicInteger(3);
 
-    ShootingModuleImpl(HardwareMap hardwareMap){
+    ShootingModuleImpl(HardwareMap hardwareMap) {
         shootMotor = hardwareMap.dcMotor.get("shootMotor");
         pushServo = hardwareMap.servo.get("pushServo");
     }
 
-    public void shoot(){
-        if(startTime.get()!=0 && (System.currentTimeMillis()-startTime.get())>1000){
-            while(bulletAmount.get()>0){
+    public void shoot() {
+        if (startTime.get() != 0 && (System.currentTimeMillis() - startTime.get()) > 1000) {
+            while (bulletAmount.get() > 0) {
                 push(SHOOT_POSITION);
                 resetServo();
             }
-        }else{
+        } else {
             //Do nothing
         }
     }
 
-    public void startMotor(){
+    public void startMotor() {
         synchronized (shootMotor) {
             shootMotor.setPower(1f);
         }
@@ -44,28 +44,28 @@ public class ShootingModuleImpl implements ShootingModule{
         startTime.set(0);
     }
 
-    public void aim(){
+    public void aim() {
         //等CVModule
     }
 
-    private void push(double position){
+    private void push(double position) {
         synchronized (pushServo) {
             pushServo.setPosition(position);
             bulletAmount.getAndDecrement();
-            try{
+            try {
                 Thread.sleep(800);
-            } catch(InterruptedException e){
+            } catch (InterruptedException e) {
 
             }
         }
     }
 
-    private void resetServo(){
-        synchronized (pushServo){
+    private void resetServo() {
+        synchronized (pushServo) {
             pushServo.setPosition(0f);
-            try{
+            try {
                 Thread.sleep(800);
-            } catch(InterruptedException e){
+            } catch (InterruptedException e) {
 
             }
         }
@@ -76,7 +76,7 @@ public class ShootingModuleImpl implements ShootingModule{
     }
 
     public synchronized void setBulletAmount(int bulletAmount) {
-        if(bulletAmount>=0&&bulletAmount<=3) {
+        if (bulletAmount >= 0 && bulletAmount <= 3) {
             this.bulletAmount.set(bulletAmount);
         }
     }

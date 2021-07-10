@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.exception.RobotCoreException;
 
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 
-@TeleOp(name="TeamFFFTestOpMode", group="FFF")
+@TeleOp(name = "TeamFFFTestOpMode", group = "FFF")
 public class TeamFFFTestOpmode extends OpMode {
     ShootingModule shootingModule;
     MotionModule motionModule;
@@ -16,33 +16,19 @@ public class TeamFFFTestOpmode extends OpMode {
     @Override
     public void init() {
         cvModule = new CVModuleImpl();
-
-        /*
-        shootingModule = new ShootingModuleImpl(hardwareMap);
-        //motionModule = new MotionModuleImpl(hardwareMap);
-        controller = new FtcControllerImpl(null, shootingModule, null, null, gamepad1);
-        //controller.startMotionModuleManualThread();
-        try {
-            controller.startGamepadListening();
-        }catch (NullPointerException e){
-
-        }
-
-         */
+        motionModule = new MotionModuleImpl(hardwareMap, cvModule);
+        controller = new FtcControllerImpl(motionModule, null, null, null, cvModule, gamepad1);
+        controller.startGamepadListening();
     }
 
     @Override
     public void loop() {
-        telemetry.addData("angle","%f",cvModule.getAngle());
-
-        //controller.setIsListening(true);
-
+        telemetry.addData("angle", "%f", cvModule.getAngle());
+        telemetry.addData("totalAngle", "%f", controller.getTotalAngle());
     }
 
     @Override
-    public void stop(){
-        //controller.setIsListening(false);
-
+    public void stop() {
     }
 
 }

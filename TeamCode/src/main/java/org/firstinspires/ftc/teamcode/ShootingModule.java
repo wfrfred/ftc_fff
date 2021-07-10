@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 /**
  * @author houyicheng2005
- * @Time 2021-04-05 22:10
  * @version 1.0
+ * @Time 2021-04-05 22:10
  */
 public interface ShootingModule {
     /**
@@ -30,12 +30,14 @@ public interface ShootingModule {
 
     /**
      * 获取子弹数
+     *
      * @return 子弹数
      */
     int getBulletAmount();
 
     /**
      * 改变子弹数
+     *
      * @param bulletAmount 要设定的子弹数 范围为0到3
      */
     void setBulletAmount(int bulletAmount);

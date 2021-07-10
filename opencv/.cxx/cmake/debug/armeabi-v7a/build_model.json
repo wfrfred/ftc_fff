@@ -177,6 +177,7 @@
       "project": {
         "compilerSettingsCacheFolder": "F:\\Fredwei\\github\\ftc_fff\\.cxx",
         "cxxFolder": "F:\\Fredwei\\github\\ftc_fff\\.cxx",
+        "ideBuildTargetAbi": "armeabi-v7a,armeabi",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
@@ -200,10 +201,7 @@
     "objFolder": "F:\\Fredwei\\github\\ftc_fff\\opencv\\build\\intermediates\\cmake\\debug\\obj",
     "variantName": "debug",
     "validAbiList": [
-      "ARMEABI_V7A",
-      "ARM64_V8A",
-      "X86",
-      "X86_64"
+      "ARMEABI_V7A"
     ],
     "prefabDirectory": "F:\\Fredwei\\github\\ftc_fff\\opencv\\.cxx\\cmake\\debug\\prefab",
     "prefabPackageDirectoryList": []

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@TeleOp(name="TeamFFFShootOpMode", group="FFF")
+@TeleOp(name = "TeamFFFShootOpMode", group = "FFF")
 public class TeamFFFShootOpMode extends OpMode {
     private DcMotor s;
     private Servo p;
@@ -24,10 +24,10 @@ public class TeamFFFShootOpMode extends OpMode {
 
     @Override
     public void loop() {
-        if(gamepad1.a){
+        if (gamepad1.a) {
 
         }
-        if(gamepad1.right_bumper){
+        if (gamepad1.right_bumper) {
 
         }
 
@@ -55,7 +55,7 @@ public class TeamFFFShootOpMode extends OpMode {
     }
 
     @Override
-    public void stop(){
+    public void stop() {
     }
 
     public final void sleep(long milliseconds) {

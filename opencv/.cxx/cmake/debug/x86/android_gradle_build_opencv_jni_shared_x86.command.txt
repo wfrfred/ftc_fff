@@ -1,0 +1,7 @@
+Executable : F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+F:\Fredwei\github\ftc_fff\opencv\.cxx\cmake\debug\x86
+opencv_jni_shared
+jvmArgs : 
+

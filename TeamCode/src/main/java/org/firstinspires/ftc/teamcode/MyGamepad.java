@@ -7,13 +7,13 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import java.util.Hashtable;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-class MyGamepad{
+class MyGamepad {
     private GamepadListener gamepadListener;
     private Gamepad gamepad;
-    private Hashtable<Code, Pair<Boolean,Long>> pressTime;
+    private Hashtable<Code, Pair<Boolean, Long>> pressTime;
     private AtomicBoolean isListening = new AtomicBoolean(false);
 
-    public enum Code{
+    public enum Code {
         A,
         B,
         X,
@@ -30,59 +30,63 @@ class MyGamepad{
         LEFT_TRIGGER
     }
 
-    MyGamepad(Gamepad gamepad){
+    MyGamepad(Gamepad gamepad) {
         this.gamepad = gamepad;
         long time = System.currentTimeMillis();
-        pressTime = new Hashtable<Code,Pair<Boolean,Long>>(){
+        pressTime = new Hashtable<Code, Pair<Boolean, Long>>() {
             {
-                put(Code.A,new Pair<>(false,time));
+                put(Code.A, new Pair<>(false, time));
                 put(Code.B, new Pair<>(false, time));
-                put(Code.X,new Pair<>(false,time));
-                put(Code.Y,new Pair<>(false,time));
-                put(Code.RIGHT_BUMPER,new Pair<>(false,time));
-                put(Code.LEFT_BUMPER,new Pair<>(false,time));
-                put(Code.RIGHT_STICK_BUTTON,new Pair<>(false,time));
-                put(Code.LEFT_STICK_BUTTON,new Pair<>(false,time));
+                put(Code.X, new Pair<>(false, time));
+                put(Code.Y, new Pair<>(false, time));
+                put(Code.RIGHT_BUMPER, new Pair<>(false, time));
+                put(Code.LEFT_BUMPER, new Pair<>(false, time));
+                put(Code.RIGHT_STICK_BUTTON, new Pair<>(false, time));
+                put(Code.LEFT_STICK_BUTTON, new Pair<>(false, time));
             }
         };
     }
 
-    public void registerListener(GamepadListener gamepadListener){
+    public void registerListener(GamepadListener gamepadListener) {
         this.gamepadListener = gamepadListener;
     }
 
-    public Thread getThread(){
+    public Thread getThread() {
         return listener;
     }
 
-    public void setIsListening(boolean isListening){
+    public void setIsListening(boolean isListening) {
         this.isListening.set(isListening);
     }
 
-    public boolean getIsListening(){
+    public boolean getIsListening() {
         return isListening.get();
     }
 
     private Thread listener = new Thread(new Runnable() {
         @Override
         public void run() {
-            while(true) {
+            while (true) {
                 if (isListening.get()) {
                     if (pressTime.get(Code.A).first != gamepad.a) debounce(Code.A);
                     if (pressTime.get(Code.B).first != gamepad.b) debounce(Code.B);
                     if (pressTime.get(Code.X).first != gamepad.x) debounce(Code.X);
                     if (pressTime.get(Code.Y).first != gamepad.y) debounce(Code.Y);
-                    if (pressTime.get(Code.RIGHT_BUMPER).first != gamepad.right_bumper) debounce(Code.RIGHT_BUMPER);
-                    if (pressTime.get(Code.LEFT_BUMPER).first != gamepad.left_bumper) debounce(Code.LEFT_BUMPER);
-                    if (pressTime.get(Code.RIGHT_STICK_BUTTON).first != gamepad.right_stick_button) debounce(Code.RIGHT_STICK_BUTTON);
-                    if (pressTime.get(Code.LEFT_STICK_BUTTON).first != gamepad.left_stick_button) debounce(Code.LEFT_STICK_BUTTON);
+                    if (pressTime.get(Code.RIGHT_BUMPER).first != gamepad.right_bumper)
+                        debounce(Code.RIGHT_BUMPER);
+                    if (pressTime.get(Code.LEFT_BUMPER).first != gamepad.left_bumper)
+                        debounce(Code.LEFT_BUMPER);
+                    if (pressTime.get(Code.RIGHT_STICK_BUTTON).first != gamepad.right_stick_button)
+                        debounce(Code.RIGHT_STICK_BUTTON);
+                    if (pressTime.get(Code.LEFT_STICK_BUTTON).first != gamepad.left_stick_button)
+                        debounce(Code.LEFT_STICK_BUTTON);
                 }
             }
         }
     });
 
-    public float getMotion(Code code){
-        switch (code){
+    public float getMotion(Code code) {
+        switch (code) {
             case RIGHT_STICK_X:
                 return gamepad.right_stick_x;
             case RIGHT_STICK_Y:
@@ -99,31 +103,31 @@ class MyGamepad{
         return 0;
     }
 
-    private long getTime(Code keyCode){
+    private long getTime(Code keyCode) {
         return pressTime.get(keyCode).second;
     }
 
-    private boolean getValue(Code keyCode){
+    private boolean getValue(Code keyCode) {
         return pressTime.get(keyCode).first;
     }
 
-    private void setKey(Code keyCode,Pair<Boolean,Long> newKey){
-        pressTime.put(keyCode,newKey);
+    private void setKey(Code keyCode, Pair<Boolean, Long> newKey) {
+        pressTime.put(keyCode, newKey);
     }
 
-    private void debounce(Code keyCode){
+    private void debounce(Code keyCode) {
         //若上次更新时间到这次小于抖动时间，则判定为抖动，否则执行方法
         //忽略与上次时间差过短
         long time = System.currentTimeMillis();
         final long DEBOUNCE_TIME = 50;
-        if((time-Math.abs(getTime(keyCode)))< DEBOUNCE_TIME) return;
-        if(!getValue(keyCode)){
-            setKey(keyCode,new Pair<>(true,time));
+        if ((time - Math.abs(getTime(keyCode))) < DEBOUNCE_TIME) return;
+        if (!getValue(keyCode)) {
+            setKey(keyCode, new Pair<>(true, time));
             return;
-        } else{
+        } else {
             //抬起时触发改变函数
-            setKey(keyCode,new Pair<>(false,time));
-            switch (keyCode){
+            setKey(keyCode, new Pair<>(false, time));
+            switch (keyCode) {
                 case A:
                     gamepadListener.pressA();
                     break;
@@ -153,7 +157,7 @@ class MyGamepad{
     }
 }
 
-interface GamepadListener{
+interface GamepadListener {
     void pressA();
 
     void pressB();
