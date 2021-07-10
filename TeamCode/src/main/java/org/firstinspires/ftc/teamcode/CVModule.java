@@ -9,6 +9,8 @@ public interface CVModule {
 
     double getAngle();
 
+    double getTotalAngle();
+
     double[] getTarget();
 
     int getMode();
