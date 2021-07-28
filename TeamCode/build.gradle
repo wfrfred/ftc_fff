@@ -1,3 +1,4 @@
+//
 // build.gradle in TeamCode
 //
 // Most of the definitions for building your module reside in a common, shared
@@ -10,5 +11,15 @@
 
 // Custom definitions may go here
 
-// Include common definitions from
+// Include common definitions from above.
 apply from: '../build.common.gradle'
+apply from: '../build.dependencies.gradle'
+
+dependencies {
+    implementation project(':FtcRobotController')
+    //implementation 'androidx.camera:camera-core:1.0.0-alpha02'
+    //implementation 'androidx.camera:camera-camera2:1.0.0-alpha02'
+    annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
+    implementation files('lib\\fff.jar')
+    implementation project(path: ':opencv')
+}

@@ -12,7 +12,7 @@ public interface ShootingModule {
      * 次数为设定的子弹数
      */
     void shoot();
-
+    void shoot3();
     /**
      * 用于瞄准
      */
@@ -28,17 +28,5 @@ public interface ShootingModule {
      */
     void stopMotor();
 
-    /**
-     * 获取子弹数
-     *
-     * @return 子弹数
-     */
-    int getBulletAmount();
-
-    /**
-     * 改变子弹数
-     *
-     * @param bulletAmount 要设定的子弹数 范围为0到3
-     */
-    void setBulletAmount(int bulletAmount);
+    boolean isMotorStarted();
 }

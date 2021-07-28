@@ -1,14 +1,14 @@
-                Executable : F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe
+Executable : F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe
 arguments : 
 -HF:\Fredwei\github\ftc_fff\opencv\libcxx_helper
 -DCMAKE_FIND_ROOT_PATH=F:\Fredwei\github\ftc_fff\opencv\.cxx\cmake\debug\prefab\x86\prefab
 -DCMAKE_BUILD_TYPE=Debug
--DCMAKE_TOOLCHAIN_FILE=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\build\cmake\android.toolchain.cmake
+-DCMAKE_TOOLCHAIN_FILE=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\build\cmake\android.toolchain.cmake
 -DANDROID_ABI=x86
--DANDROID_NDK=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462
+-DANDROID_NDK=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669
 -DANDROID_PLATFORM=android-19
 -DCMAKE_ANDROID_ARCH_ABI=x86
--DCMAKE_ANDROID_NDK=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462
+-DCMAKE_ANDROID_NDK=F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\Fredwei\github\ftc_fff\opencv\build\intermediates\cmake\debug\obj\x86
 -DCMAKE_MAKE_PROGRAM=F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe

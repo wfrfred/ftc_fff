@@ -11,7 +11,6 @@ package org.firstinspires.ftc.teamcode;
 public interface MotionModule {
     /**
      * 控制电机转动
-     *
      * @param motor      选择电机
      * @param angleSpeed 设定的转速
      */
@@ -19,14 +18,12 @@ public interface MotionModule {
 
     /**
      * 移动一定距离
-     *
      * @param distance
      */
     void move(double distance, boolean isForward);
 
     /**
      * 转动一定角度
-     *
      * @param angle
      */
     double turn(double angle);
@@ -43,5 +40,6 @@ public interface MotionModule {
      *             所有电机的转速都会被等比例缩小以保证最终机器人方向正确
      */
     void moveGamepad(double move, double turn, double fun, double k);
+    void moveGamepad(double move, double turn, double fun);
 
 }

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bean>
-    <property name = "MAX_ANGLE_SPEED" value="10"></property>
-    <property name = "SHOOT_POSITION" value = "0.9f"></property>
-</bean>

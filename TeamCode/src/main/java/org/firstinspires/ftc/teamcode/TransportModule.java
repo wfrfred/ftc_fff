@@ -8,11 +8,7 @@ package org.firstinspires.ftc.teamcode;
  * @Time 2021-07-06 19:06
  */
 public interface TransportModule {
-    void startInvoluting();
-
-    void stopInvoluting();
-
-    void startTransporting();
+    void startTransporting(boolean isForward);
 
     void stopTransporting();
 }

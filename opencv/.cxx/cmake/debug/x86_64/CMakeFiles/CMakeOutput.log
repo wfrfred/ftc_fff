@@ -1,52 +1,52 @@
 The target system is: Android - 1 - x86_64
 The host system is: Windows - 10.0.19042 - AMD64
 Determining if the C compiler works passed with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_0aea9"
-[1/2] Building C object CMakeFiles/cmTC_0aea9.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_0aea9
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_fb7ab"
+[1/2] Building C object CMakeFiles/cmTC_fb7ab.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_fb7ab
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_ff1e7"
-[1/2] Building C object CMakeFiles/cmTC_ff1e7.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_ff1e7
-Android (6317467 based on r365631c1) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project e0caee08e5f09b374a27a676d04978c81fcb1928) (based on LLVM 9.0.8svn)
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_c7989"
+[1/2] Building C object CMakeFiles/cmTC_c7989.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_c7989
+Android (5900059 based on r365631c) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project 207d7abc1a2abf3ef8d4301736d6a7ebc224a290) (based on LLVM 9.0.8svn)
 Target: x86_64-none-linux-android21
 Thread model: posix
-InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin
-Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
-Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x
-Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x
+InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin
+Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
+Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x
+Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_ff1e7 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_ff1e7.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"
+ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_c7989 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_c7989.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(x86_64-linux-android-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_ff1e7"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_ff1e7.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_ff1e7]
-  ignore line: [Android (6317467 based on r365631c1) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project e0caee08e5f09b374a27a676d04978c81fcb1928) (based on LLVM 9.0.8svn)]
+  ignore line: [Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_c7989"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_c7989.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_c7989]
+  ignore line: [Android (5900059 based on r365631c) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project 207d7abc1a2abf3ef8d4301736d6a7ebc224a290) (based on LLVM 9.0.8svn)]
   ignore line: [Target: x86_64-none-linux-android21]
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin]
-  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
-  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x]
-  ignore line: [Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+  ignore line: [InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin]
+  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
+  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x]
+  ignore line: [Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
   ignore line: [Candidate multilib: .]
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_ff1e7 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_ff1e7.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"]
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld] ==> ignore
-    arg [--sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot] ==> ignore
+  link line: [ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_c7989 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_c7989.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"]
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld] ==> ignore
+    arg [--sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot] ==> ignore
     arg [-pie] ==> ignore
     arg [-znoexecstack] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
@@ -60,17 +60,15 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ff1e7] ==> ignore
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o] ==> ignore
-    arg [-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
-    arg [--exclude-libs] ==> ignore
-    arg [libgcc.a] ==> ignore
+    arg [cmTC_c7989] ==> ignore
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o] ==> ignore
+    arg [-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
     arg [--exclude-libs] ==> ignore
     arg [libgcc_real.a] ==> ignore
     arg [--exclude-libs] ==> ignore
@@ -79,33 +77,33 @@ Parsed C implicit link information from above output:
     arg [--fatal-warnings] ==> ignore
     arg [--no-undefined] ==> ignore
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_ff1e7.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_c7989.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o] ==> ignore
-  collapse library dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o] ==> ignore
+  collapse library dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
   implicit libs: [gcc;dl;c;gcc;dl]
-  implicit dirs: [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
+  implicit dirs: [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
   implicit fwks: []
 
 
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_c88fe"
-[1/2] Building C object CMakeFiles/cmTC_c88fe.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_c88fe
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_104f1"
+[1/2] Building C object CMakeFiles/cmTC_104f1.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_104f1
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -115,11 +113,11 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_65f1c"
-[1/2] Building C object CMakeFiles/cmTC_65f1c.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_65f1c
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_2a30d"
+[1/2] Building C object CMakeFiles/cmTC_2a30d.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_2a30d
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -129,11 +127,11 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_9aec7"
-[1/2] Building C object CMakeFiles/cmTC_9aec7.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_9aec7
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_50043"
+[1/2] Building C object CMakeFiles/cmTC_50043.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_50043
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -141,52 +139,52 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_2dc91"
-[1/2] Building CXX object CMakeFiles/cmTC_2dc91.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_2dc91
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_5df46"
+[1/2] Building CXX object CMakeFiles/cmTC_5df46.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_5df46
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_13f19"
-[1/2] Building CXX object CMakeFiles/cmTC_13f19.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_13f19
-Android (6317467 based on r365631c1) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project e0caee08e5f09b374a27a676d04978c81fcb1928) (based on LLVM 9.0.8svn)
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_25052"
+[1/2] Building CXX object CMakeFiles/cmTC_25052.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_25052
+Android (5900059 based on r365631c) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project 207d7abc1a2abf3ef8d4301736d6a7ebc224a290) (based on LLVM 9.0.8svn)
 Target: x86_64-none-linux-android21
 Thread model: posix
-InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin
-Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
-Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x
-Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x
+InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin
+Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
+Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x
+Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_13f19 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_13f19.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"
+ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_25052 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_25052.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(x86_64-linux-android-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_13f19"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_13f19.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_13f19]
-  ignore line: [Android (6317467 based on r365631c1) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project e0caee08e5f09b374a27a676d04978c81fcb1928) (based on LLVM 9.0.8svn)]
+  ignore line: [Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_25052"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_25052.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_25052]
+  ignore line: [Android (5900059 based on r365631c) clang version 9.0.8 (https://android.googlesource.com/toolchain/llvm-project 207d7abc1a2abf3ef8d4301736d6a7ebc224a290) (based on LLVM 9.0.8svn)]
   ignore line: [Target: x86_64-none-linux-android21]
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin]
-  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
-  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x]
-  ignore line: [Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+  ignore line: [InstalledDir: F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin]
+  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
+  ignore line: [Found candidate GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android\4.9.x]
+  ignore line: [Selected GCC installation: F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
   ignore line: [Candidate multilib: .]
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_13f19 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_13f19.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"]
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld] ==> ignore
-    arg [--sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot] ==> ignore
+  link line: [ "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld" --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_25052 "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o" "-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64" -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21 -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_25052.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm -lgcc -ldl -lc -lgcc -ldl "F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o"]
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin\\ld] ==> ignore
+    arg [--sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot] ==> ignore
     arg [-pie] ==> ignore
     arg [-znoexecstack] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
@@ -200,17 +198,15 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_13f19] ==> ignore
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o] ==> ignore
-    arg [-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
-    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
-    arg [--exclude-libs] ==> ignore
-    arg [libgcc.a] ==> ignore
+    arg [cmTC_25052] ==> ignore
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtbegin_dynamic.o] ==> ignore
+    arg [-LF:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
+    arg [-LF:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
     arg [--exclude-libs] ==> ignore
     arg [libgcc_real.a] ==> ignore
     arg [--exclude-libs] ==> ignore
@@ -219,7 +215,7 @@ Parsed CXX implicit link information from above output:
     arg [--fatal-warnings] ==> ignore
     arg [--no-undefined] ==> ignore
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_13f19.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_25052.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lc++] ==> lib [c++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -227,27 +223,27 @@ Parsed CXX implicit link information from above output:
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o] ==> ignore
-  collapse library dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib]
-  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
+    arg [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21\\crtend_android.o] ==> ignore
+  collapse library dir [F:\\Fredwei\\AndroidStudioProjects\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\9.0.8\\lib\\linux\\x86_64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib]
+  collapse library dir [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib] ==> [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
   implicit libs: [c++;m;gcc;dl;c;gcc;dl]
-  implicit dirs: [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
+  implicit dirs: [F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/lib/linux/x86_64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/lib/gcc/x86_64-linux-android/4.9.x;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib64;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/21;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/x86_64-linux-android/lib;F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib]
   implicit fwks: []
 
 
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_ffa0f"
-[1/2] Building CXX object CMakeFiles/cmTC_ffa0f.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_ffa0f
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_d8d21"
+[1/2] Building CXX object CMakeFiles/cmTC_d8d21.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_d8d21
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -310,11 +306,11 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_3e68f"
-[1/2] Building CXX object CMakeFiles/cmTC_3e68f.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_3e68f
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_3b672"
+[1/2] Building CXX object CMakeFiles/cmTC_3b672.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_3b672
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -377,11 +373,11 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_6c2d5"
-[1/2] Building CXX object CMakeFiles/cmTC_6c2d5.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_6c2d5
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_944bc"
+[1/2] Building CXX object CMakeFiles/cmTC_944bc.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_944bc
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -444,11 +440,11 @@ Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: F:/Fredwei/github/ftc_fff/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
+Change Dir: F:/Fredwei/github/FtcRobotController-master/opencv/.cxx/cmake/debug/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_17475"
-[1/2] Building CXX object CMakeFiles/cmTC_17475.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_17475
+Run Build Command:"F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_2951c"
+[1/2] Building CXX object CMakeFiles/cmTC_2951c.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_2951c
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

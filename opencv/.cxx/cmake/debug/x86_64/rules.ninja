@@ -17,7 +17,7 @@
 rule CXX_COMPILER__opencv_jni_shared
   depfile = $DEP_FILE
   deps = gcc
-  command = F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=x86_64-none-linux-android21 --gcc-toolchain=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=x86_64-none-linux-android21 --gcc-toolchain=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=F:/Fredwei/AndroidStudioProjects/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -25,7 +25,7 @@ rule CXX_COMPILER__opencv_jni_shared
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__opencv_jni_shared
-  command = cmd.exe /C "$PRE_LINK && F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe -E remove $TARGET_FILE && F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin\x86_64-linux-android-ar.exe qc $TARGET_FILE $LINK_FLAGS $in && F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.1.6352462\toolchains\llvm\prebuilt\windows-x86_64\bin\x86_64-linux-android-ranlib.exe $TARGET_FILE && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe -E remove $TARGET_FILE && F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\x86_64-linux-android-ar.exe qc $TARGET_FILE $LINK_FLAGS $in && F:\Fredwei\AndroidStudioProjects\SDK\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\x86_64-linux-android-ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe -HF:\Fredwei\github\ftc_fff\opencv\libcxx_helper -BF:\Fredwei\github\ftc_fff\opencv\.cxx\cmake\debug\x86_64
+  command = F:\Fredwei\AndroidStudioProjects\SDK\cmake\3.10.2.4988404\bin\cmake.exe -HF:\Fredwei\github\FtcRobotController-master\opencv\libcxx_helper -BF:\Fredwei\github\FtcRobotController-master\opencv\.cxx\cmake\debug\x86_64
   description = Re-running CMake...
   generator = 1
 

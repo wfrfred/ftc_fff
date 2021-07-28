@@ -11,22 +11,10 @@ public interface RoboticArmModule {
     boolean ARM_UP = true;
     boolean ARM_DOWN = false;
 
-    /**
-     * 使得机器人到达目标物位置
-     *
-     * @param motionModule 将运动模块移交给机械爪
-     */
-    void goToTarget(MotionModule motionModule);
 
-    /**
-     * 抬起手臂
-     */
     void liftArm();
+    void putDownArm(double angle);
 
-    /**
-     * 放下手臂
-     */
-    void putDownArm();
 
     /**
      * 抓取物品
